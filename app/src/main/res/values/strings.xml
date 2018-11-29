@@ -1,6 +1,18 @@
 <resources>
-    <string name="app_name">TestM</string>
+    <string name="app_name">Sneakers Ootd</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_category_title">Category</string>
+    <string name="ootd_list_title">Ootd List</string>
+    <string name="ootd_detail_title">Ootd Detail</string>
+
+    <string name="tab_nike">NIKE</string>
+    <string name="tab_vans">VANS</string>
+    <string name="tab_new_balance">NEW BALANCE</string>
+
+    <string name="share_link">Share Link</string>
+    <string name="link_button">Link Button</string>
+    <string name="share_button">share button</string>
+    <string name="name_list_image">Name List Image</string>
+
+    <string name="network_error_message">NETWORK ERROR</string>
 </resources>

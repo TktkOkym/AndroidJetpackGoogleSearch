@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:startDestination="@+id/fragment_home_category">
+
+    <fragment
+            android:id="@+id/fragment_home_category"
+            android:name="com.project.taewon.sneakersootd.view.fragment.HomeCategoryFragment"
+            android:label="@string/home_category_title"
+            tools:layout="@layout/fragment_home_category" >
+        <action
+                android:id="@+id/action_fragment_home_category_to_fragment_ootd_image_list"
+                app:destination="@id/fragment_ootd_image_list"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/fragment_ootd_image_list"
+            android:name="com.project.taewon.sneakersootd.view.fragment.OotdImageListFragment"
+            android:label="@string/ootd_list_title"
+            tools:layout="@layout/fragment_ootd_image_list" >
+        <action
+                android:id="@+id/action_fragment_ootd_image_list_to_fragment_image_detail"
+                app:destination="@id/fragment_image_detail"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/fragment_image_detail"
+            android:name="com.project.taewon.sneakersootd.view.fragment.ImageDetailFragment"
+            android:label="@string/ootd_detail_title"
+            tools:layout="@layout/fragment_image_detail" >
+    </fragment>
+
+</navigation>

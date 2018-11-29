@@ -5,12 +5,12 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
 
 android {
-    compileSdkVersion rootProject.compileSdkVersion
+    compileSdkVersion 28
     dataBinding {
         enabled = true
     }
     defaultConfig {
-        applicationId "com.project.taewon.samplekotlin"
+        applicationId "com.project.taewon.sneakersootd"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -20,15 +20,25 @@ android {
         multiDexEnabled true
     }
     buildTypes {
+        debug {
+            buildConfigField("String", "API_KEY", "\"AIzaSyAhdkgVgYhleJ9CUxIKODY1ViJHTA4Lwuw\"")
+            buildConfigField("String", "CX_ID", "\"007564787050799373911:_8tykh6cpiq\"")
+        }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "API_KEY", "\"AIzaSyAhdkgVgYhleJ9CUxIKODY1ViJHTA4Lwuw\"")
+            buildConfigField("String", "CX_ID", "\"007564787050799373911:_8tykh6cpiq\"")
         }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+}
+
+androidExtensions {
+    experimental = true
 }
 
 dependencies {
@@ -39,21 +49,13 @@ dependencies {
     implementation "android.arch.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
     implementation "android.arch.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
     implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
-    implementation "androidx.appcompat:appcompat:$rootProject.supportLibraryVersion"
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
     implementation "androidx.legacy:legacy-support-v4:$rootProject.supportLibraryVersion"
     implementation "androidx.recyclerview:recyclerview:$rootProject.supportLibraryVersion"
     implementation "com.google.android.material:material:$rootProject.materiaDesignlVersion"
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.kotlinVersion"
-
-    // Testing dependencies
-    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
-    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
-    testImplementation "junit:junit:$rootProject.junitVersion"
-
     //3rd Party Library
     kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
@@ -63,5 +65,4 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
-    implementation "com.jakewharton.timber:timber:4.5.1"
 }
