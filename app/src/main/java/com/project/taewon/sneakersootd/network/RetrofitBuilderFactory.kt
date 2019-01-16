@@ -1,7 +1,6 @@
 package com.project.taewon.sneakersootd.network
 
 import androidx.annotation.NonNull
-import com.project.taewon.sneakersootd.constants.Constants
 import com.project.taewon.sneakersootd.constants.WebServiceConstants
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

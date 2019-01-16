@@ -54,7 +54,7 @@ class HomeCategoryFragment : Fragment() {
             getString(R.string.tab_vans))
 
         adapter.addFrag(instanceOf<SneakersNameListFragment>(
-            bundleOf(Constants.BUNDLE_NAME_LIST to  getNewBalanceList())),
+            bundleOf(Constants.BUNDLE_NAME_LIST to getNewBalanceList())),
             getString(R.string.tab_new_balance))
     }
 
@@ -118,7 +118,7 @@ class HomeCategoryFragment : Fragment() {
         )
     }
 
-    private fun getNewBalanceList() : ArrayList<SneakersNameItem> {
+    private fun getNewBalanceList(): ArrayList<SneakersNameItem> {
         return arrayListOf(
             SneakersNameItem(
                 "M1400",
