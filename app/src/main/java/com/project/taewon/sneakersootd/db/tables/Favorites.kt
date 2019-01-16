@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "favorites")
 @JvmSuppressWildcards
-data class FavoriteItem(
+data class Favorites(
     @PrimaryKey
     var index: Int,
     var title: String,
