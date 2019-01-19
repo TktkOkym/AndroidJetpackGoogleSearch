@@ -8,6 +8,8 @@ import com.project.taewon.sneakersootd.network.ApiResponse
 import com.project.taewon.sneakersootd.network.ApiServices
 import com.project.taewon.sneakersootd.network.NetworkBoundResource
 import com.project.taewon.sneakersootd.network.Resource
+import retrofit2.Call
+import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -24,5 +26,13 @@ constructor(private val executors: AppExecutors, private val services: ApiServic
                 return services.searchImage(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset)
             }
         }.asLiveData()
+    }
+
+    fun getSearchImageNonLiveData(
+        query: String,
+        searchType: String,
+        offset: Int
+    ): Call<SearchResponse> {
+        return services.searchImageNonLiveData(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset)
     }
 }
