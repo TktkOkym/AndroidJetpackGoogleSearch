@@ -5,14 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.ListAdapter
+import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.project.taewon.sneakersootd.constants.Constants
 import com.project.taewon.sneakersootd.R
 import com.project.taewon.sneakersootd.databinding.ImageListItemBinding
 import com.project.taewon.sneakersootd.network.model.Image
 
-class SneakersImageListAdapter : ListAdapter<Image,
+class SneakersImageListAdapter : PagedListAdapter<Image,
         SneakersImageListAdapter.ViewHolder>(SneakersImageListDiff()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,9 +22,11 @@ class SneakersImageListAdapter : ListAdapter<Image,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        holder.apply {
-            bind(createOnClickListener(item), item)
-            itemView.tag = item
+        item?.let {
+            holder.apply {
+                bind(createOnClickListener(it), it)
+                itemView.tag = it
+            }
         }
     }
 

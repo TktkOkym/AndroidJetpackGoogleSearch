@@ -44,7 +44,7 @@ androidExtensions {
 dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"
-    annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
+    kapt "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
     implementation "android.arch.navigation:navigation-fragment:$rootProject.navigationVersion"
     implementation "android.arch.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
@@ -59,8 +59,11 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.kotlinVersion"
     // Room components
     implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
-    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+    kapt "android.arch.persistence.room:compiler:$rootProject.roomVersion"
     androidTestImplementation "android.arch.persistence.room:testing:$rootProject.roomVersion"
+    // Paging
+    implementation "androidx.paging:paging-runtime:$rootProject.pagingVersion"
+    implementation "androidx.paging:paging-rxjava2:$rootProject.pagingVersion"
 
     //3rd Party Library
     kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
