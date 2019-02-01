@@ -23,7 +23,7 @@ constructor(private val executors: AppExecutors, private val services: ApiServic
     ): LiveData<Resource<SearchResponse>> {
         return object : NetworkBoundResource<SearchResponse>(executors) {
             override fun createCall(): LiveData<ApiResponse<SearchResponse>> {
-                return services.searchImage(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset)
+                return services.searchImage(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 1)
             }
         }.asLiveData()
     }
@@ -33,6 +33,6 @@ constructor(private val executors: AppExecutors, private val services: ApiServic
         searchType: String,
         offset: Int
     ): Call<SearchResponse> {
-        return services.searchImageNonLiveData(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset)
+        return services.searchImageNonLiveData(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 1)
     }
 }

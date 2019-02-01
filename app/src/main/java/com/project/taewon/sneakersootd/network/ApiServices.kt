@@ -14,7 +14,8 @@ interface ApiServices {
         @Query("cx") cx: String,
         @Query("q") query: String,
         @Query("searchType") searchType: String,
-        @Query("startIndex") offset: Int
+        @Query("start") offset: Int,
+        @Query("startIndex") startIndex: Int
     ): LiveData<ApiResponse<SearchResponse>>
 
     @GET(WebServiceConstants.GET_MAIN)
@@ -23,6 +24,7 @@ interface ApiServices {
         @Query("cx") cx: String,
         @Query("q") query: String,
         @Query("searchType") searchType: String,
-        @Query("startIndex") offset: Int
+        @Query("start") offset: Int,
+        @Query("startIndex") startIndex: Int
     ): Call<SearchResponse>
 }

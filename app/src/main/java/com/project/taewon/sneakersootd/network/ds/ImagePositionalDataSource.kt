@@ -11,7 +11,9 @@ class ImagePositionalDataSource(
     val query: String
 ) : PositionalDataSource<Image>() {
     override fun loadInitial(params: LoadInitialParams, callback: LoadInitialCallback<Image>) {
-        val firstLoadPosition = PositionalDataSource.computeInitialLoadPosition(params, computeCount())
+        //TODO:
+//        val firstLoadPosition = PositionalDataSource.computeInitialLoadPosition(params, computeCount())
+        val firstLoadPosition = 1
 
         val call =
             networkModel.getSearchImageNonLiveData(query, WebServiceConstants.SEARCH_TYPE, offset = firstLoadPosition)
@@ -26,8 +28,9 @@ class ImagePositionalDataSource(
 
     override fun loadRange(params: LoadRangeParams, callback: LoadRangeCallback<Image>) {
 
+        val offset = if (params.startPosition >=10) params.startPosition+1 else 1
         val call =
-            networkModel.getSearchImageNonLiveData(query, WebServiceConstants.SEARCH_TYPE, offset = params.startPosition)
+            networkModel.getSearchImageNonLiveData(query, WebServiceConstants.SEARCH_TYPE, offset = offset)
 
         val response = call.execute()
 
@@ -36,8 +39,7 @@ class ImagePositionalDataSource(
         }
     }
 
-    //TODO: fixbug
     private fun computeCount(): Int {
-        return 0
+        return 100
     }
 }
