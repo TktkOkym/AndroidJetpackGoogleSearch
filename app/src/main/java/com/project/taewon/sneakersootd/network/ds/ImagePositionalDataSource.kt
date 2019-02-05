@@ -17,9 +17,7 @@ class ImagePositionalDataSource(
 
         val call =
             networkModel.getSearchImageNonLiveData(query, WebServiceConstants.SEARCH_TYPE, offset = firstLoadPosition)
-
         val response = call.execute()
-
         if (response.isSuccessful && !response.body()?.items.isNullOrEmpty()) {
             //TODO: fix total count
             callback.onResult(response?.body()?.items!!, firstLoadPosition, 100)
@@ -31,9 +29,7 @@ class ImagePositionalDataSource(
         val offset = if (params.startPosition >=10) params.startPosition+1 else 1
         val call =
             networkModel.getSearchImageNonLiveData(query, WebServiceConstants.SEARCH_TYPE, offset = offset)
-
         val response = call.execute()
-
         if (response.isSuccessful && !response.body()?.items.isNullOrEmpty()) {
             callback.onResult(response?.body()?.items!!)
         }

@@ -9,7 +9,6 @@ import com.project.taewon.sneakersootd.network.ApiServices
 import com.project.taewon.sneakersootd.network.NetworkBoundResource
 import com.project.taewon.sneakersootd.network.Resource
 import retrofit2.Call
-import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -23,7 +22,7 @@ constructor(private val executors: AppExecutors, private val services: ApiServic
     ): LiveData<Resource<SearchResponse>> {
         return object : NetworkBoundResource<SearchResponse>(executors) {
             override fun createCall(): LiveData<ApiResponse<SearchResponse>> {
-                return services.searchImage(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 1)
+                return services.searchImage(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 0)
             }
         }.asLiveData()
     }
@@ -33,6 +32,6 @@ constructor(private val executors: AppExecutors, private val services: ApiServic
         searchType: String,
         offset: Int
     ): Call<SearchResponse> {
-        return services.searchImageNonLiveData(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 1)
+        return services.searchImageNonLiveData(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 0)
     }
 }

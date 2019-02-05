@@ -8,13 +8,13 @@ class SneakersImageListDiff : DiffUtil.ItemCallback<Image>() {
         oldItem: Image,
         newItem: Image
     ): Boolean {
-        return oldItem.link == newItem.link // check uniqueness
+        return oldItem.title == newItem.title // check uniqueness
     }
 
     override fun areContentsTheSame(
         oldItem: Image,
         newItem: Image
     ): Boolean {
-        return oldItem == newItem // check contents
+        return oldItem == newItem  // check contents
     }
 }
