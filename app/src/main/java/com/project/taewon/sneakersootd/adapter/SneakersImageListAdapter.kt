@@ -22,7 +22,7 @@ class SneakersImageListAdapter : PagedListAdapter<Image,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        item?.let {
+        item?.also {
             holder.apply {
                 bind(createOnClickListener(it), it)
                 itemView.tag = it

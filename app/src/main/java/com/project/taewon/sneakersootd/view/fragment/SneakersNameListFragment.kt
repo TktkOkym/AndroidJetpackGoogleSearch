@@ -39,8 +39,8 @@ class SneakersNameListFragment : Fragment() {
 
     @Suppress("UNCHECKED_CAST")
     private fun subscribeUi(adapter: SneakersNameListAdapter) {
-        arguments?.let {
-            val itemList = it.get(Constants.BUNDLE_NAME_LIST) as ArrayList<SneakersNameItem>
+        arguments?.run {
+            val itemList = get(Constants.BUNDLE_NAME_LIST) as ArrayList<SneakersNameItem>
             adapter.submitList(itemList)
         }
     }

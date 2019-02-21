@@ -47,10 +47,10 @@ class OotdImageListFragment : Fragment(), Injectable {
         binding.nameList.layoutManager = GridLayoutManager(context, 1)
         binding.nameList.adapter = adapter
 
-        arguments?.let {
+        arguments?.run {
             val query = getQuery(
-                it.get(Constants.BUNDLE_NAME) as String,
-                it.get(Constants.BUNDLE_BRAND_NAME) as String)
+                get(Constants.BUNDLE_NAME) as String,
+                get(Constants.BUNDLE_BRAND_NAME) as String)
             getSearchImageApi(query, adapter)
         }
     }
