@@ -39,8 +39,10 @@ class HomeCategoryFragment : Fragment() {
     private fun initDataBinding() {
         val adapter = PagerAdapter(childFragmentManager)
         setTabLayoutViewData(adapter)
-        binding.viewPager.adapter = adapter
-        binding.tabLayout.setupWithViewPager(binding.viewPager)
+        binding.apply {
+            viewPager.adapter = adapter
+            tabLayout.setupWithViewPager(binding.viewPager)
+        }
     }
 
     // NOTE: Can be handled by server response in the future using proper list of sneakers data

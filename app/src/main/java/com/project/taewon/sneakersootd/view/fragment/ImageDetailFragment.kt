@@ -59,9 +59,10 @@ class ImageDetailFragment : Fragment() {
     }
 
     private fun openLinkByChrome(url: String) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        intent.setPackage("com.android.chrome")
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).run {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            setPackage(Constants.CHROME_PACKAGE_SCHEME)
+        }
         try {
             startActivity(intent)
         } catch (e: ActivityNotFoundException) {

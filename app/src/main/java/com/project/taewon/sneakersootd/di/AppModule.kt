@@ -10,5 +10,5 @@ import javax.inject.Singleton
 class AppModule {
     @Singleton
     @Provides
-    fun provideWebService(): ApiServices { return RetrofitBuilderFactory.getApiServiceNonLiveData() }
+    fun provideWebService(): ApiServices { return RetrofitBuilderFactory.getApiServices() }
 }

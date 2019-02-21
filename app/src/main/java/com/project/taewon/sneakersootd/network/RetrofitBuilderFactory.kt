@@ -12,7 +12,7 @@ import javax.inject.Singleton
 class RetrofitBuilderFactory {
 
     @NonNull
-    private fun getApiServices(): ApiServices {
+    private fun getLiveDataApiServices(): ApiServices {
         val builder = OkHttpClient().newBuilder()
         val client = builder.build()
 
@@ -25,7 +25,7 @@ class RetrofitBuilderFactory {
     }
 
     @NonNull
-    private fun getApiServicesNonLiveData(): ApiServices {
+    private fun getApiServices(): ApiServices {
         val builder = OkHttpClient().newBuilder()
         val client = builder.build()
 
@@ -41,12 +41,12 @@ class RetrofitBuilderFactory {
         /**
          * This method will call using inject, which will maintain single instance
          */
-        fun getApiService(): ApiServices {
-            return RetrofitBuilderFactory().getApiServices()
+        fun getLiveDataApiServices(): ApiServices {
+            return RetrofitBuilderFactory().getLiveDataApiServices()
         }
 
-        fun getApiServiceNonLiveData(): ApiServices {
-            return RetrofitBuilderFactory().getApiServicesNonLiveData()
+        fun getApiServices(): ApiServices {
+            return RetrofitBuilderFactory().getApiServices()
         }
     }
 }

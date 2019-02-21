@@ -31,10 +31,12 @@ class SneakersNameListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val adapter = SneakersNameListAdapter()
-        binding.nameList.layoutManager = GridLayoutManager(context, 2)
-        binding.nameList.adapter = adapter
-        subscribeUi(adapter)
+        val nameListAdapter = SneakersNameListAdapter()
+        binding.nameList.apply {
+            layoutManager = GridLayoutManager(context, 2)
+            adapter = nameListAdapter
+        }
+        subscribeUi(nameListAdapter)
     }
 
     @Suppress("UNCHECKED_CAST")
