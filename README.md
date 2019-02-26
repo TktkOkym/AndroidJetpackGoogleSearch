@@ -9,5 +9,4 @@
 ## Current Issue
   * PagedList Item index is not showing properly (eg. show extra empty layout for initial 0 position)
 ## TODO
-### 1. Fix bugs for PagedList
-### 2. Implement Favorites page using Roomdb
+### Implement Favorites page using Roomdb
