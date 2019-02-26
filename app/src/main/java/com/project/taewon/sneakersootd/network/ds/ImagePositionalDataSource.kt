@@ -23,7 +23,7 @@ class ImagePositionalDataSource(
     }
 
     override fun loadRange(params: LoadRangeParams, callback: LoadRangeCallback<Image>) {
-
+        //Google Custom Search API's page offset start from 1, 11, 21... and so on
         val offset = if (params.startPosition >=10) params.startPosition+1 else 1
         val call =
             networkModel.getSearchImage(query, WebServiceConstants.SEARCH_TYPE, offset = offset)
