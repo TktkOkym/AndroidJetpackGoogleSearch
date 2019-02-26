@@ -10,3 +10,5 @@
   * PagedList Item index is not showing properly (eg. show extra empty layout for initial 0 position)
 ## TODO
 ### Implement Favorites page using Roomdb
+## Screenshot
+<img src="https://github.com/TktkOkym/sneakers_ootd_google_custom_search_api/blob/master/Screenshot/sneakersOotd.gif" width="300" />
