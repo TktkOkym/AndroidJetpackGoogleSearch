@@ -6,8 +6,6 @@
 ## Investigation
   * Cannot use livedata inside DataSource class -> Cannot invoke setValue on a background thread
   * Used Retrofit Call to retrieve the api response within DataSource class
-## Current Issue
-  * PagedList Item index is not showing properly (eg. show extra empty layout for initial 0 position)
 ## TODO
 ### Implement Favorites page using Roomdb
 ## Screenshot
