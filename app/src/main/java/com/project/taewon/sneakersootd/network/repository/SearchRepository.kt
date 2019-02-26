@@ -15,23 +15,23 @@ import javax.inject.Singleton
 @Singleton
 class SearchRepository @Inject
 constructor(private val executors: AppExecutors, private val services: ApiServices) {
-    fun getSearchImage(
+    fun getSearchImageLiveData(
         query: String,
         searchType: String,
         offset: Int
     ): LiveData<Resource<SearchResponse>> {
         return object : NetworkBoundResource<SearchResponse>(executors) {
             override fun createCall(): LiveData<ApiResponse<SearchResponse>> {
-                return services.searchImage(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 0)
+                return services.getSearchImageLiveData(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 0)
             }
         }.asLiveData()
     }
 
-    fun getSearchImageNonLiveData(
+    fun getSearchImage(
         query: String,
         searchType: String,
         offset: Int
     ): Call<SearchResponse> {
-        return services.searchImageNonLiveData(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 0)
+        return services.getSearchImage(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 0)
     }
 }

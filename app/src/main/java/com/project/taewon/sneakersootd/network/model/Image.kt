@@ -19,3 +19,14 @@ data class Image(
     var mime: String?,
     var image: ImageInfo?
 ) : Parcelable
+
+@Parcelize
+data class ImageInfo(
+    var contextLink: String? = null,
+    var height: Int? = null,
+    var width: Int? = null,
+    var byteSize: Int? = null,
+    var thumbnailLink: String? = null,
+    var thumbnailHeight: Int? = null,
+    var thumbnailWidth: Int? = null
+) : Parcelable

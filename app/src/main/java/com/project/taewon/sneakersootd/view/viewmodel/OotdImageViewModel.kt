@@ -9,19 +9,19 @@ import retrofit2.Call
 import javax.inject.Inject
 
 class OotdImageViewModel @Inject constructor(var searchRepository: SearchRepository) : ViewModel() {
-    fun getSearchImage(
+    fun getSearchImageLiveData(
         query: String,
         searchType: String,
         offset: Int
     ): LiveData<Resource<SearchResponse>> {
-        return searchRepository.getSearchImage(query, searchType, offset)
+        return searchRepository.getSearchImageLiveData(query, searchType, offset)
     }
 
-    fun getSearchImageNonLiveData(
+    fun getSearchImage(
         query: String,
         searchType: String,
         offset: Int
     ): Call<SearchResponse> {
-        return searchRepository.getSearchImageNonLiveData(query, searchType, offset)
+        return searchRepository.getSearchImage(query, searchType, offset)
     }
 }

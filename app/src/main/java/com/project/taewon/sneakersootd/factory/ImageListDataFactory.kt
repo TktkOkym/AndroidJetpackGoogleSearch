@@ -12,7 +12,7 @@ class ImageListDataFactory(
     private val query: String
 ) : DataSource.Factory<Int, Image>() {
 
-    private val mutableLiveData: MutableLiveData<ImagePositionalDataSource> = MutableLiveData()
+    private val mutableLiveData = MutableLiveData<ImagePositionalDataSource>()
     lateinit var imagePositionalDataSource: ImagePositionalDataSource
 
     override fun create(): DataSource<Int, Image> {

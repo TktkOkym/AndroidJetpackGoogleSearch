@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface ApiServices {
     @GET(WebServiceConstants.GET_MAIN)
-    fun searchImage(
+    fun getSearchImageLiveData(
         @Query("key") apiKey: String,
         @Query("cx") cx: String,
         @Query("q") query: String,
@@ -19,7 +19,7 @@ interface ApiServices {
     ): LiveData<ApiResponse<SearchResponse>>
 
     @GET(WebServiceConstants.GET_MAIN)
-    fun searchImageNonLiveData(
+    fun getSearchImage(
         @Query("key") apiKey: String,
         @Query("cx") cx: String,
         @Query("q") query: String,
