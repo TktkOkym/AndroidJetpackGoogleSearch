@@ -11,16 +11,14 @@ class ImagePositionalDataSource(
     val query: String
 ) : PositionalDataSource<Image>() {
     override fun loadInitial(params: LoadInitialParams, callback: LoadInitialCallback<Image>) {
-        //TODO:
-//        val firstLoadPosition = PositionalDataSource.computeInitialLoadPosition(params, computeCount())
-        val firstLoadPosition = 1
-
+        val firstLoadPosition = 1 //Google Custom Search API's initial offset start from 1
+        val totalCount = computeCount()
+        val position = computeInitialLoadPosition(params, totalCount)
         val call =
             networkModel.getSearchImage(query, WebServiceConstants.SEARCH_TYPE, offset = firstLoadPosition)
         val response = call.execute()
         if (response.isSuccessful && !response.body()?.items.isNullOrEmpty()) {
-            //TODO: fix total count
-            callback.onResult(response?.body()?.items!!, firstLoadPosition, 100)
+            callback.onResult(response?.body()?.items!!, position, totalCount)
         }
     }
 
@@ -36,6 +34,6 @@ class ImagePositionalDataSource(
     }
 
     private fun computeCount(): Int {
-        return 100
+        return 50
     }
 }
