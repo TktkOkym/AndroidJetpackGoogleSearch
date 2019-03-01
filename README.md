@@ -3,8 +3,9 @@
   * [Google Custom Search API](https://developers.google.com/custom-search/v1/overview)
 #### Android JetPack
   * Navigation Architecture Components
-    - Issue: fragment re-created when coming back to tablayout/recyclerview from next page --> current status is not being saved
-    - Reason: NavController ultimately calls "FragmentTransaction.replace", which remove currrent then add new Fragment. "FragmentTransaction.add" should be called instead to retain its status -> there's no proper solution provided yet
+    - Issue: fragment re-created when coming back to tablayout/recyclerview from next page and current status is not being saved
+    - Reason: NavController ultimately calls "FragmentTransaction.replace", which remove currrent then add new Fragment. "FragmentTransaction.add" should be called instead to retain its status
+    - Conclusion: It might not be a good idea to use Navigation Architecturre Components in current stage, especially if you are using LiveData and PagedListView
   * LiveData
   * ViewModel
   * Room
