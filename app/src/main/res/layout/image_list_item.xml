@@ -13,32 +13,22 @@
                 type="com.project.taewon.sneakersootd.network.model.Image"/>
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{clickListener}" >
+            android:onClick="@{clickListener}"
+            app:cardElevation="0dp"
+            app:cardUseCompatPadding="true"
+            tools:ignore="MissingConstraints">
 
-        <androidx.cardview.widget.CardView
+        <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardUseCompatPadding="true"
-                tools:ignore="MissingConstraints">
-
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/card_view_padding"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/item_image_height"
-                        android:scaleType="centerCrop"
-                        app:imageFromUrl="@{data.link}"
-                        android:contentDescription="Image List Item ImageView"
-                        tools:ignore="HardcodedText" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_height="@dimen/item_image_height"
+                android:padding="@dimen/card_view_padding"
+                android:scaleType="centerCrop"
+                app:imageFromUrl="@{data.link}"
+                android:contentDescription="Image List Item ImageView"
+                tools:ignore="HardcodedText"/>
+    </androidx.cardview.widget.CardView>
 </layout>

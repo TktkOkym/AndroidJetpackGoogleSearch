@@ -13,41 +13,37 @@
                 type="com.project.taewon.sneakersootd.data.SneakersNameItem"/>
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{clickListener}" >
+            app:cardUseCompatPadding="true"
+            app:cardElevation="0dp"
+            android:onClick="@{clickListener}"
+            tools:ignore="MissingConstraints">
 
-        <androidx.cardview.widget.CardView
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardUseCompatPadding="true"
-                tools:ignore="MissingConstraints">
-
-            <LinearLayout
+                android:padding="@dimen/card_view_padding"
+                android:orientation="vertical"
+                android:gravity="center">
+            <ImageView
+                    android:id="@+id/imageView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/card_view_padding"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/thumbnail_image_height"
-                        android:scaleType="fitXY"
-                        app:imageFromUrl="@{data.imageUrl}"
-                        android:contentDescription="@string/name_list_image"
-                        tools:ignore="HardcodedText" />
+                    android:layout_height="@dimen/thumbnail_image_height"
+                    android:scaleType="fitXY"
+                    app:imageFromUrl="@{data.imageUrl}"
+                    android:contentDescription="@string/name_list_image"
+                    tools:ignore="HardcodedText"/>
 
-                <TextView
-                        android:id="@+id/sneakers_name_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/name_item_title_text"
-                        android:text="@{data.name}" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                    android:id="@+id/sneakers_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textStart"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/name_item_title_text"
+                    android:text="@{data.name}"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </layout>
