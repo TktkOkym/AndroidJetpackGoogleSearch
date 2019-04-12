@@ -15,6 +15,7 @@ import com.project.taewon.sneakersootd.di.Injectable
 import com.project.taewon.sneakersootd.view.viewmodel.OotdImageViewModel
 import javax.inject.Inject
 import androidx.lifecycle.Observer
+import com.project.taewon.sneakersootd.network.model.Image
 
 /**
  * Sneakers Ootd Image List Fragment
@@ -26,6 +27,8 @@ class OotdImageListFragment : Fragment(), Injectable {
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var binding: FragmentOotdImageListBinding
+    private lateinit var viewModel: OotdImageViewModel
+    private var pagedItems: List<Image>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,6 +36,7 @@ class OotdImageListFragment : Fragment(), Injectable {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentOotdImageListBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(OotdImageViewModel::class.java)
         return binding.root
     }
 
@@ -43,25 +47,24 @@ class OotdImageListFragment : Fragment(), Injectable {
         binding.nameList.layoutManager = GridLayoutManager(context, 1)
         binding.nameList.adapter = adapter
 
-        arguments?.run {
-            val query = getQuery(
-                get(Constants.BUNDLE_NAME) as String,
-                get(Constants.BUNDLE_BRAND_NAME) as String)
-            getSearchImageApi(query, adapter)
+        if (pagedItems.isNullOrEmpty()) { //To avoid API call when coming back from next page
+            run {
+                arguments?.run {
+                    val query = getQuery(
+                        get(Constants.BUNDLE_NAME) as String,
+                        get(Constants.BUNDLE_BRAND_NAME) as String)
+                    viewModel.setPagedList(query)
+                }
+            }
         }
+
+        viewModel.pagedItems.observe(this, Observer { pagedItems ->
+            this.pagedItems = pagedItems
+            adapter.submitList(pagedItems)
+        })
     }
 
     private fun getQuery(name: String, brandName: String): String {
         return "$brandName $name ${Constants.OOTD_KEY}"
-    }
-
-    private fun getSearchImageApi(query: String, adapter: SneakersImageListAdapter) {
-        // Paging Setup using LiveData / Factory
-        val viewModel =
-            ViewModelProviders.of(this, viewModelFactory).get(OotdImageViewModel::class.java)
-        viewModel.setPagedList(query)
-        viewModel.pagedItems.observe(this, Observer { pagedItems ->
-            adapter.submitList(pagedItems)
-        })
     }
 }
