@@ -21,4 +21,4 @@
   * Implement Swipe to refresh 
   * Add unit tests
 #### Screenshot
-<img src="https://github.com/TktkOkym/sneakers_ootd_google_custom_search_api/blob/master/Screenshot/sneakersOotd.gif" width="300" />
+<img src="https://github.com/TktkOkym/sneakers_ootd_google_custom_search_api/blob/master/Screenshot/paging.gif" width="300" />
