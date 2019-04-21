@@ -36,10 +36,10 @@ class ImageDetailFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         arguments?.run {
-            val image = get(Constants.BUNDLE_IMAGE) as Image
+            val image = get(Constants.BUNDLE_IMAGE) as Image?
             binding.apply {
                 data = image
-                image.image?.contextLink?.also { url ->
+                image?.image?.contextLink?.also { url ->
                     if (url.isNotBlank()) {
                         linkButton.setOnClickListener { openLinkByChrome(url) }
                         shareButton.setOnClickListener { openShareLink(url) }
@@ -59,7 +59,7 @@ class ImageDetailFragment : Fragment() {
     }
 
     private fun openLinkByChrome(url: String) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).run {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             setPackage(Constants.CHROME_PACKAGE_SCHEME)
         }

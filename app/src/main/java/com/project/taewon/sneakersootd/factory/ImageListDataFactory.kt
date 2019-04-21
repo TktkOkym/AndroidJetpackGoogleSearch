@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import com.project.taewon.sneakersootd.network.ds.ImagePositionalDataSource
 import com.project.taewon.sneakersootd.network.model.Image
-import com.project.taewon.sneakersootd.view.viewmodel.OotdImageViewModel
+import com.project.taewon.sneakersootd.viewmodel.OotdImageViewModel
 
 
 class ImageListDataFactory(

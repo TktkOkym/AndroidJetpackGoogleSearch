@@ -1,4 +1,4 @@
-package com.project.taewon.sneakersootd.view.viewmodel
+package com.project.taewon.sneakersootd.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +8,7 @@ import com.project.taewon.sneakersootd.factory.ImageListDataFactory
 import com.project.taewon.sneakersootd.network.model.SearchResponse
 import com.project.taewon.sneakersootd.network.Resource
 import com.project.taewon.sneakersootd.network.model.Image
-import com.project.taewon.sneakersootd.network.repository.SearchRepository
+import com.project.taewon.sneakersootd.repository.SearchRepository
 import retrofit2.Call
 import java.util.concurrent.Executors
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.project.taewon.sneakersootd.view.viewmodel.factory
+package com.project.taewon.sneakersootd.viewmodel.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

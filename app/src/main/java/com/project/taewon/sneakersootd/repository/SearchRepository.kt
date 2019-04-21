@@ -1,4 +1,4 @@
-package com.project.taewon.sneakersootd.network.repository
+package com.project.taewon.sneakersootd.repository
 
 import androidx.lifecycle.LiveData
 import com.project.taewon.sneakersootd.BuildConfig

@@ -3,7 +3,7 @@ package com.project.taewon.sneakersootd.network.ds
 import androidx.paging.PositionalDataSource
 import com.project.taewon.sneakersootd.constants.WebServiceConstants
 import com.project.taewon.sneakersootd.network.model.Image
-import com.project.taewon.sneakersootd.view.viewmodel.OotdImageViewModel
+import com.project.taewon.sneakersootd.viewmodel.OotdImageViewModel
 
 
 class ImagePositionalDataSource(

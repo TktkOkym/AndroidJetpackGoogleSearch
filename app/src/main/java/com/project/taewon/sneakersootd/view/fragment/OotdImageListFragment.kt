@@ -12,7 +12,7 @@ import com.project.taewon.sneakersootd.constants.Constants
 import com.project.taewon.sneakersootd.adapter.SneakersImageListAdapter
 import com.project.taewon.sneakersootd.databinding.FragmentOotdImageListBinding
 import com.project.taewon.sneakersootd.di.Injectable
-import com.project.taewon.sneakersootd.view.viewmodel.OotdImageViewModel
+import com.project.taewon.sneakersootd.viewmodel.OotdImageViewModel
 import javax.inject.Inject
 import androidx.lifecycle.Observer
 import com.project.taewon.sneakersootd.network.model.Image
@@ -22,7 +22,6 @@ import com.project.taewon.sneakersootd.network.model.Image
  *
  */
 class OotdImageListFragment : Fragment(), Injectable {
-
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
@@ -40,31 +39,29 @@ class OotdImageListFragment : Fragment(), Injectable {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val adapter = SneakersImageListAdapter()
         binding.nameList.layoutManager = GridLayoutManager(context, 1)
         binding.nameList.adapter = adapter
 
         if (pagedItems.isNullOrEmpty()) { //To avoid API call when coming back from next page
-            run {
-                arguments?.run {
-                    val query = getQuery(
-                        get(Constants.BUNDLE_NAME) as String,
-                        get(Constants.BUNDLE_BRAND_NAME) as String)
-                    viewModel.setPagedList(query)
-                }
+            arguments?.run {
+                val query = getQuery(
+                    getString(Constants.BUNDLE_NAME),
+                    getString(Constants.BUNDLE_BRAND_NAME))
+                viewModel.setPagedList(query)
             }
         }
 
-        viewModel.pagedItems.observe(this, Observer { pagedItems ->
-            this.pagedItems = pagedItems
-            adapter.submitList(pagedItems)
+        viewModel.pagedItems.observe(this, Observer {
+            pagedItems = it
+            adapter.submitList(it)
         })
     }
 
-    private fun getQuery(name: String, brandName: String): String {
-        return "$brandName $name ${Constants.OOTD_KEY}"
+    private fun getQuery(name: String?, brandName: String?): String {
+        return """${brandName.orEmpty()} ${name.orEmpty()} ${Constants.OOTD_KEY}"""
     }
 }

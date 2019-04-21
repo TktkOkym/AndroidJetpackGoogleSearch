@@ -2,8 +2,8 @@ package com.project.taewon.sneakersootd.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.project.taewon.sneakersootd.view.viewmodel.OotdImageViewModel
-import com.project.taewon.sneakersootd.view.viewmodel.factory.ViewModelFactory
+import com.project.taewon.sneakersootd.viewmodel.OotdImageViewModel
+import com.project.taewon.sneakersootd.viewmodel.factory.ViewModelFactory
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
