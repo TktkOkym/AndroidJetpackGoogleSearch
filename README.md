@@ -14,8 +14,6 @@
   * Dagger2
   * Retrofit
   * Glide
-#### Investigation
-  * Cannot use livedata inside DataSource class, since it does not allow to invoke setValue on a background thread
 #### TODO
   * Implement Favorites page using Roomdb
   * Implement Swipe to refresh 
