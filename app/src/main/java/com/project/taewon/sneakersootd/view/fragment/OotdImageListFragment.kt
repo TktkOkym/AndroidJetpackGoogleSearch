@@ -62,6 +62,6 @@ class OotdImageListFragment : Fragment(), Injectable {
     }
 
     private fun getQuery(name: String?, brandName: String?): String {
-        return """${brandName.orEmpty()} ${name.orEmpty()} ${Constants.OOTD_KEY}"""
+        return "${brandName.orEmpty()} ${name.orEmpty()} ${Constants.OOTD_KEY}"
     }
 }
