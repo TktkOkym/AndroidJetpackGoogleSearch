@@ -20,7 +20,7 @@ class ImagePositionalDataSource(
                 it.items?.run {
                     callback.onResult(this,
                         0, // initial index position
-                        it.searchInformation?.totalResults?.toInt() ?: 0) // set placeholder with total count
+                        it.searchInformation?.totalResults?.toInt() ?: this.size) // set placeholder with total count
                 }
             }
         }
