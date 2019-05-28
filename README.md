@@ -10,6 +10,7 @@
   * AndroidX
   * Paging 
     - Used Unbounded List and PositionalDataSource. Referenced [Google Sample](https://github.com/googlesamples/android-architecture-components/tree/master/PagingWithNetworkSample)
+  * Coroutine - call api calls and update lists on background thread
 #### Other Libraries
   * Dagger2
   * Retrofit
