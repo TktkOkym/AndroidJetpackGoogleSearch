@@ -3,6 +3,7 @@ package com.project.taewon.sneakersootd.network
 import androidx.lifecycle.LiveData
 import com.project.taewon.sneakersootd.constants.WebServiceConstants
 import com.project.taewon.sneakersootd.network.model.SearchResponse
+import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -26,5 +27,5 @@ interface ApiServices {
         @Query("searchType") searchType: String,
         @Query("start") offset: Int,
         @Query("startIndex") startIndex: Int
-    ): Call<SearchResponse>
+    ): Deferred<SearchResponse>
 }

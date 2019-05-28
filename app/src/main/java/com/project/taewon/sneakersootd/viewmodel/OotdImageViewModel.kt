@@ -9,7 +9,6 @@ import com.project.taewon.sneakersootd.network.model.SearchResponse
 import com.project.taewon.sneakersootd.network.Resource
 import com.project.taewon.sneakersootd.network.model.Image
 import com.project.taewon.sneakersootd.repository.SearchRepository
-import retrofit2.Call
 import java.util.concurrent.Executors
 import javax.inject.Inject
 
@@ -24,14 +23,6 @@ class OotdImageViewModel @Inject constructor(var searchRepository: SearchReposit
         return searchRepository.getSearchImageLiveData(query, searchType, offset)
     }
 
-    fun getSearchImage(
-        query: String,
-        searchType: String,
-        offset: Int
-    ): Call<SearchResponse> {
-        return searchRepository.getSearchImage(query, searchType, offset)
-    }
-
     private val config = PagedList.Config.Builder()
         .setInitialLoadSizeHint(INITIAL_LOAD_SIZE_HINT)
         .setPageSize(PAGE_SIZE)
@@ -40,7 +31,7 @@ class OotdImageViewModel @Inject constructor(var searchRepository: SearchReposit
         .build()
 
     fun setPagedList(query: String) {
-        pagedItems = LivePagedListBuilder(ImageListDataFactory(this, query), config)
+        pagedItems = LivePagedListBuilder(ImageListDataFactory(searchRepository, query), config)
             .setFetchExecutor(Executors.newFixedThreadPool(NUMBER_OF_THREADS))
             .build()
     }

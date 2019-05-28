@@ -15,6 +15,7 @@ import javax.inject.Singleton
 @Singleton
 class SearchRepository @Inject
 constructor(private val executors: AppExecutors, private val services: ApiServices) {
+    //convert retrofit json response to livedata (enqueue response in order to not block the ui thread)
     fun getSearchImageLiveData(
         query: String,
         searchType: String,
@@ -27,11 +28,11 @@ constructor(private val executors: AppExecutors, private val services: ApiServic
         }.asLiveData()
     }
 
-    fun getSearchImage(
+    suspend fun getSearchImage(
         query: String,
         searchType: String,
         offset: Int
-    ): Call<SearchResponse> {
-        return services.getSearchImage(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 0)
+    ): SearchResponse {
+        return services.getSearchImage(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 0).await()
     }
 }
