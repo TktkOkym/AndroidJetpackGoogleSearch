@@ -21,9 +21,13 @@ class ImagePositionalDataSource(
             launch {
                 val response =
                     repository.getSearchImage(query, WebServiceConstants.SEARCH_TYPE, offset = firstLoadPosition)
-                callback.onResult(response.items.orEmpty(),
-                    0, // initial index position
-                    response.searchInformation?.totalResults?.toInt() ?: (response.items?.size ?: 0)) // set placeholder with total count
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        callback.onResult(response.body()?.items.orEmpty(),
+                            0, // initial index position
+                            it.searchInformation?.totalResults?.toInt() ?: (it.items?.size ?: 0)) // set placeholder with total count
+                    }
+                }
             }
         }
     }
@@ -35,7 +39,11 @@ class ImagePositionalDataSource(
             launch {
                 val response =
                     repository.getSearchImage(query, WebServiceConstants.SEARCH_TYPE, offset = offset)
-                callback.onResult(response.items.orEmpty()) // set placeholder with total count
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        callback.onResult(response.body()?.items.orEmpty()) // set placeholder with total count
+                    }
+                }
             }
         }
     }

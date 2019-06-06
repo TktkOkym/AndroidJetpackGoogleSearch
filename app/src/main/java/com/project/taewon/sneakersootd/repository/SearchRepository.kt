@@ -9,6 +9,7 @@ import com.project.taewon.sneakersootd.network.ApiServices
 import com.project.taewon.sneakersootd.network.NetworkBoundResource
 import com.project.taewon.sneakersootd.network.Resource
 import retrofit2.Call
+import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -16,11 +17,7 @@ import javax.inject.Singleton
 class SearchRepository @Inject
 constructor(private val executors: AppExecutors, private val services: ApiServices) {
     //convert retrofit json response to livedata (enqueue response in order to not block the ui thread)
-    fun getSearchImageLiveData(
-        query: String,
-        searchType: String,
-        offset: Int
-    ): LiveData<Resource<SearchResponse>> {
+    fun getSearchImageLiveData(query: String, searchType: String, offset: Int): LiveData<Resource<SearchResponse>> {
         return object : NetworkBoundResource<SearchResponse>(executors) {
             override fun createCall(): LiveData<ApiResponse<SearchResponse>> {
                 return services.getSearchImageLiveData(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 0)
@@ -28,11 +25,7 @@ constructor(private val executors: AppExecutors, private val services: ApiServic
         }.asLiveData()
     }
 
-    suspend fun getSearchImage(
-        query: String,
-        searchType: String,
-        offset: Int
-    ): SearchResponse {
+    suspend fun getSearchImage(query: String, searchType: String, offset: Int): Response<SearchResponse> {
         return services.getSearchImage(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 0).await()
     }
 }
