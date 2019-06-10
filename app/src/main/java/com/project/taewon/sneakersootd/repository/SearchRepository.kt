@@ -8,7 +8,6 @@ import com.project.taewon.sneakersootd.network.ApiResponse
 import com.project.taewon.sneakersootd.network.ApiServices
 import com.project.taewon.sneakersootd.network.NetworkBoundResource
 import com.project.taewon.sneakersootd.network.Resource
-import retrofit2.Call
 import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton

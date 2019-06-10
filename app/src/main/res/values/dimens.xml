@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="card_view_padding">5dp</dimen>
-    <dimen name="item_image_height">200dp</dimen>
+    <dimen name="ootd_item_image_height">260dp</dimen>
     <dimen name="thumbnail_image_height">180dp</dimen>
     <dimen name="list_item_title_text">20sp</dimen>
     <dimen name="name_item_title_text">15sp</dimen>

@@ -12,11 +12,11 @@ class LiveDataCallAdapterFactory : CallAdapter.Factory() {
         annotations: Array<Annotation>,
         retrofit: Retrofit
     ): CallAdapter<*, *>? {
-        if (CallAdapter.Factory.getRawType(returnType) != LiveData::class.java) {
+        if (getRawType(returnType) != LiveData::class.java) {
             return null
         }
         val observableType = CallAdapter.Factory.getParameterUpperBound(0, returnType as ParameterizedType)
-        val rawObservableType = CallAdapter.Factory.getRawType(observableType)
+        val rawObservableType = getRawType(observableType)
         if (rawObservableType != ApiResponse::class.java) {
             throw IllegalArgumentException("type must be a resource")
         }

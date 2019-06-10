@@ -24,7 +24,7 @@
         <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/item_image_height"
+                android:layout_height="@dimen/ootd_item_image_height"
                 android:padding="@dimen/card_view_padding"
                 android:scaleType="centerCrop"
                 app:imageFromUrl="@{data.link}"

@@ -1,17 +1,14 @@
 package com.project.taewon.sneakersootd.adapter
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.project.taewon.sneakersootd.constants.Constants
-import com.project.taewon.sneakersootd.R
 import com.project.taewon.sneakersootd.data.SneakersNameItem
 import com.project.taewon.sneakersootd.databinding.NameListItemBinding
+import com.project.taewon.sneakersootd.view.fragment.HomeCategoryFragmentDirections
 
 class SneakersNameListAdapter : ListAdapter<SneakersNameItem,
         SneakersNameListAdapter.ViewHolder>(SneakersNameListDiff()) {
@@ -31,12 +28,9 @@ class SneakersNameListAdapter : ListAdapter<SneakersNameItem,
 
     private fun createOnClickListener(name: String, brandName: String): View.OnClickListener {
         return View.OnClickListener {
-            val bundle: Bundle = bundleOf(
-                Constants.BUNDLE_NAME to name,
-                Constants.BUNDLE_BRAND_NAME to brandName
-            )
-            it.findNavController()
-                .navigate(R.id.action_fragment_home_category_to_fragment_ootd_image_list, bundle)
+            val direction
+                    = HomeCategoryFragmentDirections.actionFragmentHomeCategoryToFragmentOotdImageList(name, brandName)
+            it.findNavController().navigate(direction)
         }
     }
 

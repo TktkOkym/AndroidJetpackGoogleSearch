@@ -21,8 +21,14 @@
     <fragment
             android:id="@+id/fragment_ootd_image_list"
             android:name="com.project.taewon.sneakersootd.view.fragment.OotdImageListFragment"
-            android:label="@string/ootd_list_title"
+            android:label="{title}"
             tools:layout="@layout/fragment_ootd_image_list" >
+        <argument
+                android:name="title"
+                app:argType="string" />
+        <argument
+                android:name="brandName"
+                app:argType="string" />
         <action
                 android:id="@+id/action_fragment_ootd_image_list_to_fragment_image_detail"
                 app:destination="@id/fragment_image_detail"
