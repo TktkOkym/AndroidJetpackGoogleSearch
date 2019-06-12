@@ -25,6 +25,6 @@ constructor(private val executors: AppExecutors, private val services: ApiServic
     }
 
     suspend fun getSearchImage(query: String, searchType: String, offset: Int): Response<SearchResponse> {
-        return services.getSearchImage(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 0).await()
+        return services.getSearchImageAsync(BuildConfig.API_KEY, BuildConfig.CX_ID, query, searchType, offset, 0).await()
     }
 }

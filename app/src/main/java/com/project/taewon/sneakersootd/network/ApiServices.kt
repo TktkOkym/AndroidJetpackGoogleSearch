@@ -20,7 +20,7 @@ interface ApiServices {
     ): LiveData<ApiResponse<SearchResponse>>
 
     @GET(WebServiceConstants.GET_MAIN)
-    fun getSearchImage(
+    fun getSearchImageAsync(
         @Query("key") apiKey: String,
         @Query("cx") cx: String,
         @Query("q") query: String,

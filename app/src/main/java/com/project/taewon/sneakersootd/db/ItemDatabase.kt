@@ -7,8 +7,7 @@ import androidx.room.RoomDatabase
 import com.project.taewon.sneakersootd.db.dao.ItemListDao
 import com.project.taewon.sneakersootd.db.tables.SneakersItem
 
-@Database(entities = arrayOf(
-    SneakersItem::class), version = 1)
+@Database(entities = [SneakersItem::class], version = 1)
 abstract class ItemDatabase : RoomDatabase() {
     abstract fun itemListDao(): ItemListDao
 
