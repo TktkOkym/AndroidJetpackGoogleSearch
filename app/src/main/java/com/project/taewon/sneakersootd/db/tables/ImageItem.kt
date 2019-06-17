@@ -4,7 +4,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "sneakers_item")
-data class SneakersItem(
+data class ImageItem(
     @PrimaryKey
-    var title: String
+    var title: String,
+    var url: String,
+    var isLiked: Boolean = false
 )

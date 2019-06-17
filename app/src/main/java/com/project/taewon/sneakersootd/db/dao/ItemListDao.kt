@@ -7,19 +7,19 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.OnConflictStrategy
 
-import com.project.taewon.sneakersootd.db.tables.SneakersItem
+import com.project.taewon.sneakersootd.db.tables.ImageItem
 
 @Dao
 interface ItemListDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(item: SneakersItem)
+    fun insert(item: ImageItem)
 
     @Delete
-    fun delete(item: SneakersItem)
+    fun delete(item: ImageItem)
 
     @Query("SELECT * FROM sneakers_item")
-    fun getAllSneakers(): LiveData<List<SneakersItem>>
+    fun getAllSneakers(): LiveData<List<ImageItem>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(plants: List<SneakersItem>)
+    fun insertAll(plants: List<ImageItem>)
 }

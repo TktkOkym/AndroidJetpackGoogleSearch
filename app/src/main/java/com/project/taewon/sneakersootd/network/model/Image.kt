@@ -6,7 +6,6 @@ import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-@Entity(tableName = "sneakers_item")
 data class Image(
     @PrimaryKey
     var title: String?,
