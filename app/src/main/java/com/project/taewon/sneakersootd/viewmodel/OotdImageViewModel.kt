@@ -4,16 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
+import com.project.taewon.sneakersootd.db.tables.ImageItem
 import com.project.taewon.sneakersootd.factory.ImageListDataFactory
 import com.project.taewon.sneakersootd.network.model.SearchResponse
 import com.project.taewon.sneakersootd.network.Resource
-import com.project.taewon.sneakersootd.network.model.Image
 import com.project.taewon.sneakersootd.repository.SearchRepository
 import java.util.concurrent.Executors
 import javax.inject.Inject
 
 class OotdImageViewModel @Inject constructor(var searchRepository: SearchRepository) : ViewModel() {
-    lateinit var pagedItems: LiveData<PagedList<Image>>
+    lateinit var pagedItems: LiveData<PagedList<ImageItem>>
 
     fun getSearchImageLiveData(
         query: String,

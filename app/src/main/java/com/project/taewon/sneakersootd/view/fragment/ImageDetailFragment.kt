@@ -8,12 +8,12 @@ import androidx.fragment.app.Fragment
 import com.project.taewon.sneakersootd.constants.Constants
 
 import com.project.taewon.sneakersootd.databinding.FragmentImageDetailBinding
-import com.project.taewon.sneakersootd.network.model.Image
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import androidx.core.app.ShareCompat
 import com.project.taewon.sneakersootd.R
+import com.project.taewon.sneakersootd.db.tables.ImageItem
 
 /**
  * Image Detail page with original link page button and share button
@@ -36,10 +36,10 @@ class ImageDetailFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         arguments?.run {
-            val image = get(Constants.BUNDLE_IMAGE) as Image?
+            val image = get(Constants.BUNDLE_IMAGE) as ImageItem?
             binding.apply {
                 data = image
-                image?.image?.contextLink?.also { url ->
+                image?.url?.also { url ->
                     if (url.isNotBlank()) {
                         linkButton.setOnClickListener { openLinkByChrome(url) }
                         shareButton.setOnClickListener { openShareLink(url) }

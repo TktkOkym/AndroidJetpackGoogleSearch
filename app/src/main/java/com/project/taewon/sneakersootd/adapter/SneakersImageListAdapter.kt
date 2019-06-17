@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.project.taewon.sneakersootd.constants.Constants
 import com.project.taewon.sneakersootd.R
 import com.project.taewon.sneakersootd.databinding.ImageListItemBinding
-import com.project.taewon.sneakersootd.network.model.Image
+import com.project.taewon.sneakersootd.db.tables.ImageItem
 
-class SneakersImageListAdapter : PagedListAdapter<Image,
+class SneakersImageListAdapter : PagedListAdapter<ImageItem,
         SneakersImageListAdapter.ViewHolder>(SneakersImageListDiff()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,7 +30,7 @@ class SneakersImageListAdapter : PagedListAdapter<Image,
         }
     }
 
-    private fun createOnClickListener(item: Image): View.OnClickListener {
+    private fun createOnClickListener(item: ImageItem): View.OnClickListener {
         return View.OnClickListener {
 
             val bundle = bundleOf(
@@ -45,7 +45,7 @@ class SneakersImageListAdapter : PagedListAdapter<Image,
         private val binding: ImageListItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(listener: View.OnClickListener, item: Image) {
+        fun bind(listener: View.OnClickListener, item: ImageItem) {
             binding.apply {
                 clickListener = listener
                 data = item

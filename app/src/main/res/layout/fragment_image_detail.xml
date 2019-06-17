@@ -8,7 +8,7 @@
                 type="android.view.View.OnClickListener"/>
         <variable
                 name="data"
-                type="com.project.taewon.sneakersootd.network.model.Image"/>
+                type="com.project.taewon.sneakersootd.db.tables.ImageItem"/>
     </data>
 
     <ScrollView
@@ -28,7 +28,7 @@
                     android:layout_height="wrap_content"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"
-                    app:imageFromUrl="@{data.link}"
+                    app:imageFromUrl="@{data.url}"
                     android:contentDescription="Detail Image"
                     tools:ignore="HardcodedText" />
 

@@ -16,7 +16,7 @@ import com.project.taewon.sneakersootd.viewmodel.OotdImageViewModel
 import javax.inject.Inject
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
-import com.project.taewon.sneakersootd.network.model.Image
+import com.project.taewon.sneakersootd.db.tables.ImageItem
 
 /**
  * Sneakers Ootd Image List Fragment
@@ -28,7 +28,7 @@ class OotdImageListFragment : Fragment(), Injectable {
 
     private lateinit var binding: FragmentOotdImageListBinding
     private lateinit var viewModel: OotdImageViewModel
-    private var pagedItems: List<Image>? = null
+    private var pagedItems: List<ImageItem>? = null
     private val args: OotdImageListFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -49,13 +49,10 @@ class OotdImageListFragment : Fragment(), Injectable {
         binding.nameList.adapter = adapter
 
         if (pagedItems.isNullOrEmpty()) { //To avoid API call when coming back from next page
-                viewModel.setPagedList(getQuery(args.title, args.brandName))
+            viewModel.setPagedList(getQuery(args.title, args.brandName))
         }
 
-        viewModel.pagedItems.observe(this, Observer {
-            pagedItems = it
-            adapter.submitList(it)
-        })
+        viewModel.pagedItems.observe(this, Observer { adapter.submitList(it) })
     }
 
     private fun getQuery(name: String?, brandName: String?): String {

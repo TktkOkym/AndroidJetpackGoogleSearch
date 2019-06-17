@@ -10,7 +10,7 @@
                 type="android.view.View.OnClickListener"/>
         <variable
                 name="data"
-                type="com.project.taewon.sneakersootd.network.model.Image"/>
+                type="com.project.taewon.sneakersootd.db.tables.ImageItem"/>
     </data>
 
     <androidx.cardview.widget.CardView
@@ -27,7 +27,7 @@
                 android:layout_height="@dimen/ootd_item_image_height"
                 android:padding="@dimen/card_view_padding"
                 android:scaleType="centerCrop"
-                app:imageFromUrl="@{data.link}"
+                app:imageFromUrl="@{data.url}"
                 android:contentDescription="Image List Item ImageView"
                 tools:ignore="HardcodedText"/>
     </androidx.cardview.widget.CardView>
