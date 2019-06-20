@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.project.taewon.sneakersootd.db.dao.ItemListDao
 import com.project.taewon.sneakersootd.db.tables.ImageItem
 
-@Database(entities = [ImageItem::class], version = 1)
+@Database(entities = [ImageItem::class], version = 1, exportSchema = false)
 abstract class ItemDatabase : RoomDatabase() {
     abstract fun itemListDao(): ItemListDao
 }
