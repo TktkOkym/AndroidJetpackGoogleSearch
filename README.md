@@ -17,6 +17,7 @@
   * Glide
 #### TODO
   * Implement Favorites page using Roomdb
+  * Dark-Mode
   * Implement Swipe to refresh 
   * Add unit tests
 #### Screenshot
