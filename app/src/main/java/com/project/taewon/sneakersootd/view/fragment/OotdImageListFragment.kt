@@ -49,7 +49,7 @@ class OotdImageListFragment : Fragment(), Injectable {
 
         val adapter = SneakersImageListAdapter(object: SneakersImageListAdapter.ClickCallback {
             override fun onClick(view: View, item: ImageItem) {
-                viewModel.insertItemToDb(item) //insert item to db for 'viewed page'
+                viewModel.insertItemToDb(item) //insert item to db for 'viewed item page'
                 val bundle = bundleOf(Constants.BUNDLE_IMAGE to item)
                 view.findNavController()
                     .navigate(R.id.action_fragment_ootd_image_list_to_fragment_image_detail, bundle)
