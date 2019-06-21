@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -15,7 +16,9 @@ import com.project.taewon.sneakersootd.di.Injectable
 import com.project.taewon.sneakersootd.viewmodel.OotdImageViewModel
 import javax.inject.Inject
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.project.taewon.sneakersootd.R
 import com.project.taewon.sneakersootd.db.tables.ImageItem
 
 /**
@@ -44,7 +47,15 @@ class OotdImageListFragment : Fragment(), Injectable {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = SneakersImageListAdapter()
+        val adapter = SneakersImageListAdapter(object: SneakersImageListAdapter.ClickCallback {
+            override fun onClick(view: View, item: ImageItem) {
+                viewModel.insertItemToDb(item) //insert item to db for 'viewed page'
+                val bundle = bundleOf(Constants.BUNDLE_IMAGE to item)
+                view.findNavController()
+                    .navigate(R.id.action_fragment_ootd_image_list_to_fragment_image_detail, bundle)
+            }
+        })
+
         binding.nameList.layoutManager = GridLayoutManager(context, 2)
         binding.nameList.adapter = adapter
 

@@ -9,11 +9,16 @@ import com.project.taewon.sneakersootd.factory.ImageListDataFactory
 import com.project.taewon.sneakersootd.network.model.SearchResponse
 import com.project.taewon.sneakersootd.network.Resource
 import com.project.taewon.sneakersootd.repository.SearchRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
+import kotlinx.coroutines.launch
 import java.util.concurrent.Executors
 import javax.inject.Inject
 
 class OotdImageViewModel @Inject constructor(var searchRepository: SearchRepository) : ViewModel() {
     lateinit var pagedItems: LiveData<PagedList<ImageItem>>
+    private val ioScope: CoroutineScope = CoroutineScope(Dispatchers.IO)
 
     fun getSearchImageLiveData(
         query: String,
@@ -34,6 +39,12 @@ class OotdImageViewModel @Inject constructor(var searchRepository: SearchReposit
         pagedItems = LivePagedListBuilder(ImageListDataFactory(searchRepository, query), config)
             .setFetchExecutor(Executors.newFixedThreadPool(NUMBER_OF_THREADS))
             .build()
+    }
+
+    fun insertItemToDb(item: ImageItem) {
+        ioScope.launch {
+            searchRepository.insertItemToDb(item)
+        }
     }
 
     companion object {
