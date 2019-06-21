@@ -2,10 +2,10 @@ package com.project.taewon.sneakersootd.view.fragment
 
 
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -30,6 +30,7 @@ class ViewedItemFragment : Fragment(), Injectable {
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var viewModel: ViewedItemViewModel
     private lateinit var binding: FragmentViewedItemBinding
+    private var isListEmpty = true
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +39,7 @@ class ViewedItemFragment : Fragment(), Injectable {
     ): View? {
         binding = FragmentViewedItemBinding.inflate(inflater, container, false)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(ViewedItemViewModel::class.java)
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -62,7 +64,33 @@ class ViewedItemFragment : Fragment(), Injectable {
     @Suppress("UNCHECKED_CAST")
     private fun subscribeUi(adapter: ViewedItemListAdapter) {
         viewModel.getViewedItemFromDb().observe(this, Observer {
+            isListEmpty = it.isEmpty()
             adapter.submitList(it)
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.viewed_list_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.action_clear_viewed_item -> removeAll()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun removeAll() {
+        if (isListEmpty) {
+            Toast.makeText(context, R.string.empty_list, Toast.LENGTH_LONG).show()
+        } else {
+            val builder = AlertDialog.Builder(context!!)
+            with(builder) {
+                setTitle(getString(R.string.delete_all))
+                setPositiveButton(android.R.string.yes) { _, _ -> viewModel.deleteAllFromDb() }
+                setNegativeButton(android.R.string.no) { _, _ -> }
+            }.also { it.show() }
+        }
     }
 }

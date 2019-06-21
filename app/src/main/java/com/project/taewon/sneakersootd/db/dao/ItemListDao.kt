@@ -19,4 +19,7 @@ interface ItemListDao {
 
     @Query("SELECT * FROM sneakers_item")
     fun getAllSneakers(): LiveData<List<ImageItem>>
+
+    @Query("DELETE FROM sneakers_item")
+    fun deleteAll(): Int
 }

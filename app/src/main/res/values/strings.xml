@@ -15,4 +15,7 @@
 
     <string name="network_error_message">NETWORK ERROR</string>
     <string name="viewed_items">Viewed Items</string>
+    <string name="remove_all_viewed_item">remove all viewed item</string>
+    <string name="delete_all">Clear List?</string>
+    <string name="empty_list">List is empty</string>
 </resources>
