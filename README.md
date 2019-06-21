@@ -1,4 +1,4 @@
-# Sneakers Ootd
+# Android Jetpack with Google Search API
 #### API
   * [Google Custom Search API](https://developers.google.com/custom-search/v1/overview)
 #### Android JetPack
@@ -16,7 +16,7 @@
   * Retrofit
   * Glide
 #### TODO
-  * Implement Favorites page using Roomdb
+  * Implement Viewd Item page using Roomdb
   * Dark-Mode
   * Implement Swipe to refresh 
   * Add unit tests
