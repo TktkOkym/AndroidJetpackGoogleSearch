@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.project.taewon.sneakersootd.databinding.ImageListItemBinding
+import com.project.taewon.sneakersootd.databinding.ViewedListItemBinding
 import com.project.taewon.sneakersootd.db.tables.ImageItem
 
 class ViewedItemListAdapter(val callback: ClickCallback) : ListAdapter<ImageItem,
@@ -13,7 +13,7 @@ class ViewedItemListAdapter(val callback: ClickCallback) : ListAdapter<ImageItem
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         //TODO: use new item layout with check box for removing items
-        return ViewHolder(ImageListItemBinding.inflate(
+        return ViewHolder(ViewedListItemBinding.inflate(
             LayoutInflater.from(parent.context), parent, false))
     }
 
@@ -34,7 +34,7 @@ class ViewedItemListAdapter(val callback: ClickCallback) : ListAdapter<ImageItem
     }
 
     class ViewHolder(
-        private val binding: ImageListItemBinding
+        private val binding: ViewedListItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(listener: View.OnClickListener, item: ImageItem) {
