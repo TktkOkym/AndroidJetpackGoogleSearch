@@ -3,6 +3,7 @@ package com.project.taewon.sneakersootd.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.project.taewon.sneakersootd.viewmodel.OotdImageViewModel
+import com.project.taewon.sneakersootd.viewmodel.ViewedItemViewModel
 import com.project.taewon.sneakersootd.viewmodel.factory.ViewModelFactory
 import dagger.Binds
 import dagger.MapKey
@@ -22,7 +23,12 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(OotdImageViewModel::class)
-    abstract fun bindHOotdImageiewModel(ootdImageViewModel: OotdImageViewModel): ViewModel
+    abstract fun bindOotdImageViewModel(ootdImageViewModel: OotdImageViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ViewedItemViewModel::class)
+    abstract fun bindViewedItemViewModel(viewedItemViewModel: ViewedItemViewModel): ViewModel
 }
 
 @Retention(AnnotationRetention.RUNTIME)

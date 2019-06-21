@@ -16,6 +16,8 @@
                 app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_left"
                 app:popExitAnim="@anim/slide_out_right"/>
+        <action android:id="@+id/action_fragment_home_category_to_fragment_viewed_item"
+                app:destination="@id/fragment_viewed_item"/>
     </fragment>
 
     <fragment
@@ -43,6 +45,19 @@
             android:name="com.project.taewon.sneakersootd.view.fragment.ImageDetailFragment"
             android:label="@string/ootd_detail_title"
             tools:layout="@layout/fragment_image_detail" >
+    </fragment>
+
+    <fragment
+            android:id="@+id/fragment_viewed_item"
+            android:name="com.project.taewon.sneakersootd.view.fragment.ViewedItemFragment"
+            android:label="Viewed Items"
+            tools:layout="@layout/fragment_image_detail" >
+        <action android:id="@+id/action_fragment_viewed_item_to_fragment_image_detail"
+                app:destination="@id/fragment_image_detail"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
 </navigation>

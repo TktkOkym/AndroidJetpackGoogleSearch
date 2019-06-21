@@ -32,8 +32,6 @@ constructor(private val executors: AppExecutors, private val services: ApiServic
 
     // For Room DB
     fun getItemListFromDb() = itemListDao.getAllSneakers()
-
-    suspend fun insertItemToDb(item: ImageItem) = itemListDao.insert(item)
-
+    fun insertItemToDb(item: ImageItem) = itemListDao.insert(item)
     fun deleteItemFromDb(item: ImageItem) = itemListDao.delete(item)
 }
