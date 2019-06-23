@@ -25,3 +25,5 @@
   * Add unit tests
 #### Screenshot
 <img src="https://github.com/TktkOkym/AndroidJetpackGoogleSearch/blob/master/screenshot/paging.gif" width="300" />
+
+<img src="https://github.com/TktkOkym/AndroidJetpackGoogleSearch/blob/master/screenshot/viewed_item_page.png" width="300" />
