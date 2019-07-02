@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.project.taewon.sneakersootd.data.SneakersNameItem
+import com.project.taewon.sneakersootd.model.SneakersNameItem
 import com.project.taewon.sneakersootd.databinding.NameListItemBinding
 import com.project.taewon.sneakersootd.view.fragment.HomeCategoryFragmentDirections
 

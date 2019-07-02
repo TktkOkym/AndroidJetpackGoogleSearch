@@ -1,4 +1,4 @@
-package com.project.taewon.sneakersootd.data
+package com.project.taewon.sneakersootd.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

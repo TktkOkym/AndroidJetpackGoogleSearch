@@ -1,7 +1,7 @@
 package com.project.taewon.sneakersootd.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.project.taewon.sneakersootd.data.SneakersNameItem
+import com.project.taewon.sneakersootd.model.SneakersNameItem
 
 class SneakersNameListDiff : DiffUtil.ItemCallback<SneakersNameItem>() {
     override fun areItemsTheSame(

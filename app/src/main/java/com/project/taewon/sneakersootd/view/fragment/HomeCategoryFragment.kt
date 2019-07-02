@@ -10,7 +10,7 @@ import com.project.taewon.sneakersootd.constants.Constants
 import com.project.taewon.sneakersootd.R
 
 import com.project.taewon.sneakersootd.adapter.PagerAdapter
-import com.project.taewon.sneakersootd.data.SneakersNameItem
+import com.project.taewon.sneakersootd.model.SneakersNameItem
 import com.project.taewon.sneakersootd.databinding.FragmentHomeCategoryBinding
 import com.project.taewon.sneakersootd.util.instanceOf
 

@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.project.taewon.sneakersootd.db.tables.ImageItem
-import com.project.taewon.sneakersootd.factory.ImageListDataFactory
+import com.project.taewon.sneakersootd.paging.ImageListDataFactory
 import com.project.taewon.sneakersootd.repository.SearchRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +26,11 @@ class OotdImageViewModel @Inject constructor(private var searchRepository: Searc
         .build()
 
     fun setPagedList(query: String) {
-        pagedItems = LivePagedListBuilder(ImageListDataFactory(searchRepository, query), config)
+        pagedItems = LivePagedListBuilder(
+            ImageListDataFactory(
+                searchRepository,
+                query
+            ), config)
             .setFetchExecutor(Executors.newFixedThreadPool(NUMBER_OF_THREADS))
             .build()
     }

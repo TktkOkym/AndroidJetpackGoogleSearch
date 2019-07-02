@@ -3,7 +3,7 @@ package com.project.taewon.sneakersootd.repository
 import com.project.taewon.sneakersootd.BuildConfig
 import com.project.taewon.sneakersootd.db.dao.ItemListDao
 import com.project.taewon.sneakersootd.db.tables.ImageItem
-import com.project.taewon.sneakersootd.network.model.SearchResponse
+import com.project.taewon.sneakersootd.network.response.SearchResponse
 import com.project.taewon.sneakersootd.network.ApiServices
 import retrofit2.Response
 import javax.inject.Inject

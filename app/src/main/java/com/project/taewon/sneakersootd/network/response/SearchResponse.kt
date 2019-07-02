@@ -1,4 +1,6 @@
-package com.project.taewon.sneakersootd.network.model
+package com.project.taewon.sneakersootd.network.response
+
+import com.project.taewon.sneakersootd.model.Image
 
 data class SearchResponse(
     var kind: String? = null,

@@ -1,9 +1,9 @@
-package com.project.taewon.sneakersootd.factory
+package com.project.taewon.sneakersootd.paging
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import com.project.taewon.sneakersootd.db.tables.ImageItem
-import com.project.taewon.sneakersootd.network.ds.ImagePositionalDataSource
+import com.project.taewon.sneakersootd.paging.ImagePositionalDataSource
 
 import com.project.taewon.sneakersootd.repository.SearchRepository
 

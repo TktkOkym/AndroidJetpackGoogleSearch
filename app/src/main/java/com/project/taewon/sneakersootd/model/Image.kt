@@ -1,4 +1,4 @@
-package com.project.taewon.sneakersootd.network.model
+package com.project.taewon.sneakersootd.model
 
 import android.os.Parcelable
 import androidx.room.PrimaryKey
@@ -16,15 +16,4 @@ data class Image(
     var htmlSnippet: String?,
     var mime: String?,
     var image: ImageInfo?
-) : Parcelable
-
-@Parcelize
-data class ImageInfo(
-    var contextLink: String? = null,
-    var height: Int? = null,
-    var width: Int? = null,
-    var byteSize: Int? = null,
-    var thumbnailLink: String? = null,
-    var thumbnailHeight: Int? = null,
-    var thumbnailWidth: Int? = null
 ) : Parcelable

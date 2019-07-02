@@ -10,7 +10,7 @@
                 type="android.view.View.OnClickListener"/>
         <variable
                 name="data"
-                type="com.project.taewon.sneakersootd.data.SneakersNameItem"/>
+                type="com.project.taewon.sneakersootd.model.SneakersNameItem"/>
     </data>
 
     <androidx.cardview.widget.CardView

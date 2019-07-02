@@ -1,4 +1,4 @@
-package com.project.taewon.sneakersootd.network.ds
+package com.project.taewon.sneakersootd.paging
 
 import androidx.paging.PositionalDataSource
 import com.project.taewon.sneakersootd.constants.WebServiceConstants

@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.project.taewon.sneakersootd.constants.Constants
 import com.project.taewon.sneakersootd.adapter.SneakersNameListAdapter
-import com.project.taewon.sneakersootd.data.SneakersNameItem
+import com.project.taewon.sneakersootd.model.SneakersNameItem
 import com.project.taewon.sneakersootd.databinding.FragmentSneakersNameListBinding
 
 /**

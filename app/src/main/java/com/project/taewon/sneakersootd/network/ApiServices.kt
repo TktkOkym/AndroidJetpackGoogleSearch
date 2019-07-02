@@ -1,7 +1,7 @@
 package com.project.taewon.sneakersootd.network
 
 import com.project.taewon.sneakersootd.constants.WebServiceConstants
-import com.project.taewon.sneakersootd.network.model.SearchResponse
+import com.project.taewon.sneakersootd.network.response.SearchResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
