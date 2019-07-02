@@ -6,8 +6,6 @@ import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.project.taewon.sneakersootd.db.tables.ImageItem
 import com.project.taewon.sneakersootd.factory.ImageListDataFactory
-import com.project.taewon.sneakersootd.network.model.SearchResponse
-import com.project.taewon.sneakersootd.network.Resource
 import com.project.taewon.sneakersootd.repository.SearchRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -16,17 +14,9 @@ import kotlinx.coroutines.launch
 import java.util.concurrent.Executors
 import javax.inject.Inject
 
-class OotdImageViewModel @Inject constructor(var searchRepository: SearchRepository) : ViewModel() {
+class OotdImageViewModel @Inject constructor(private var searchRepository: SearchRepository) : ViewModel() {
     lateinit var pagedItems: LiveData<PagedList<ImageItem>>
     private val ioScope: CoroutineScope = CoroutineScope(Dispatchers.IO)
-
-    fun getSearchImageLiveData(
-        query: String,
-        searchType: String,
-        offset: Int
-    ): LiveData<Resource<SearchResponse>> {
-        return searchRepository.getSearchImageLiveData(query, searchType, offset)
-    }
 
     private val config = PagedList.Config.Builder()
         .setInitialLoadSizeHint(INITIAL_LOAD_SIZE_HINT)

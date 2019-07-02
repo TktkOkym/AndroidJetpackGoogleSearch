@@ -12,7 +12,6 @@ class ViewedItemListAdapter(val callback: ClickCallback) : ListAdapter<ImageItem
         ViewedItemListAdapter.ViewHolder>(SneakersImageListDiff()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        //TODO: use new item layout with check box for removing items
         return ViewHolder(ViewedListItemBinding.inflate(
             LayoutInflater.from(parent.context), parent, false))
     }

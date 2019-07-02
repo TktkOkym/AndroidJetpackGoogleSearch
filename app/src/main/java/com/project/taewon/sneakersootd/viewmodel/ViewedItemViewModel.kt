@@ -8,7 +8,7 @@ import kotlinx.coroutines.IO
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class ViewedItemViewModel @Inject constructor(var searchRepository: SearchRepository) : ViewModel() {
+class ViewedItemViewModel @Inject constructor(private var searchRepository: SearchRepository) : ViewModel() {
     private val ioScope = CoroutineScope(Dispatchers.IO)
 
     fun getViewedItemFromDb() = searchRepository.getItemListFromDb()
