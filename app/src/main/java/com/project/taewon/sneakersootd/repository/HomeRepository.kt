@@ -1,17 +1,17 @@
 package com.project.taewon.sneakersootd.repository
 
-import android.content.Context
+import android.app.Application
 import android.content.res.AssetManager
 import com.google.gson.Gson
-import com.project.taewon.sneakersootd.model.SneakersItemList
+import com.project.taewon.sneakersootd.network.response.TabInfoResponse
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-open class HomeRepository @Inject constructor(private val application: Context) {
-    fun getTransactionList(brandName: String): SneakersItemList {
-        val jsonString = application.assets.readAssetsFile("$brandName.json")
-        return Gson().fromJson(jsonString, SneakersItemList::class.java)
+class HomeRepository @Inject constructor(private val application: Application) {
+    fun getTabInfo(): TabInfoResponse {
+        val jsonString = application.assets.readAssetsFile("tab_info.json")
+        return Gson().fromJson(jsonString, TabInfoResponse::class.java)
     }
 
     private fun AssetManager.readAssetsFile(fileName: String): String = open(fileName).bufferedReader().use { it.readText() }

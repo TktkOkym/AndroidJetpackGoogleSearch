@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.project.taewon.sneakersootd.constants.Constants
 import com.project.taewon.sneakersootd.adapter.SneakersNameListAdapter
-import com.project.taewon.sneakersootd.model.SneakersNameItem
+import com.project.taewon.sneakersootd.model.ModelNameItem
 import com.project.taewon.sneakersootd.databinding.FragmentSneakersNameListBinding
 
 /**
@@ -42,7 +42,7 @@ class SneakersNameListFragment : Fragment() {
     @Suppress("UNCHECKED_CAST")
     private fun subscribeUi(adapter: SneakersNameListAdapter) {
         arguments?.run {
-            val itemList = get(Constants.BUNDLE_NAME_LIST) as ArrayList<SneakersNameItem>
+            val itemList = get(Constants.BUNDLE_NAME_LIST) as List<ModelNameItem>
             adapter.submitList(itemList)
         }
     }

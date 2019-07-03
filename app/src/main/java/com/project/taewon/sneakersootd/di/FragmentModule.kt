@@ -9,11 +9,11 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class FragmentModule {
     @ContributesAndroidInjector
-    abstract fun contributeHomeCategoryFragment(): HomeCategoryFragment
-
-    @ContributesAndroidInjector
     abstract fun contributeOotdImageListFragment(): OotdImageListFragment
 
     @ContributesAndroidInjector
     abstract fun contributeViewedItemFragment(): ViewedItemFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeHomeCategoryFragment(): HomeCategoryFragment
 }

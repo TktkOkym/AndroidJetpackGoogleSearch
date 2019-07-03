@@ -4,10 +4,6 @@
     <string name="home_category_title">Category</string>
     <string name="ootd_detail_title">Ootd Detail</string>
 
-    <string name="tab_nike">NIKE</string>
-    <string name="tab_vans">VANS</string>
-    <string name="tab_new_balance">NEW BALANCE</string>
-
     <string name="share_link">Share Link</string>
     <string name="link_button">Link Button</string>
     <string name="share_button">share button</string>

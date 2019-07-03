@@ -2,6 +2,7 @@ package com.project.taewon.sneakersootd.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.project.taewon.sneakersootd.viewmodel.HomeCategoryViewModel
 import com.project.taewon.sneakersootd.viewmodel.OotdImageViewModel
 import com.project.taewon.sneakersootd.viewmodel.ViewedItemViewModel
 import com.project.taewon.sneakersootd.viewmodel.factory.ViewModelFactory
@@ -29,6 +30,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ViewedItemViewModel::class)
     abstract fun bindViewedItemViewModel(viewedItemViewModel: ViewedItemViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HomeCategoryViewModel::class)
+    abstract fun bindHomeCategoryViewModel(homeCategoryViewModel: HomeCategoryViewModel): ViewModel
 }
 
 @Retention(AnnotationRetention.RUNTIME)

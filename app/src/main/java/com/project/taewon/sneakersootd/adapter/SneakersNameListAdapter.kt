@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.project.taewon.sneakersootd.model.SneakersNameItem
+import com.project.taewon.sneakersootd.model.ModelNameItem
 import com.project.taewon.sneakersootd.databinding.NameListItemBinding
 import com.project.taewon.sneakersootd.view.fragment.HomeCategoryFragmentDirections
 
-class SneakersNameListAdapter : ListAdapter<SneakersNameItem,
+class SneakersNameListAdapter : ListAdapter<ModelNameItem,
         SneakersNameListAdapter.ViewHolder>(SneakersNameListDiff()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -38,7 +38,7 @@ class SneakersNameListAdapter : ListAdapter<SneakersNameItem,
         private val binding: NameListItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(listener: View.OnClickListener, item: SneakersNameItem) {
+        fun bind(listener: View.OnClickListener, item: ModelNameItem) {
             binding.apply {
                 clickListener = listener
                 data = item
