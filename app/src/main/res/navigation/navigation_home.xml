@@ -6,7 +6,7 @@
 
     <fragment
             android:id="@+id/fragment_home_category"
-            android:name="com.project.taewon.sneakersootd.view.fragment.HomeCategoryFragment"
+            android:name="com.project.taewon.googlesearch.view.fragment.HomeCategoryFragment"
             android:label="@string/home_category_title"
             tools:layout="@layout/fragment_home_category" >
         <action
@@ -22,7 +22,7 @@
 
     <fragment
             android:id="@+id/fragment_ootd_image_list"
-            android:name="com.project.taewon.sneakersootd.view.fragment.OotdImageListFragment"
+            android:name="com.project.taewon.googlesearch.view.fragment.OotdImageListFragment"
             android:label="{title}"
             tools:layout="@layout/fragment_ootd_image_list" >
         <argument
@@ -42,14 +42,14 @@
 
     <fragment
             android:id="@+id/fragment_image_detail"
-            android:name="com.project.taewon.sneakersootd.view.fragment.ImageDetailFragment"
+            android:name="com.project.taewon.googlesearch.view.fragment.ImageDetailFragment"
             android:label="@string/ootd_detail_title"
             tools:layout="@layout/fragment_image_detail" >
     </fragment>
 
     <fragment
             android:id="@+id/fragment_viewed_item"
-            android:name="com.project.taewon.sneakersootd.view.fragment.ViewedItemFragment"
+            android:name="com.project.taewon.googlesearch.view.fragment.ViewedItemFragment"
             android:label="Viewed Items"
             tools:layout="@layout/fragment_image_detail" >
         <action android:id="@+id/action_fragment_viewed_item_to_fragment_image_detail"

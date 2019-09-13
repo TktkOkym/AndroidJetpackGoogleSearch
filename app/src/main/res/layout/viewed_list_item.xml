@@ -10,7 +10,7 @@
                 type="android.view.View.OnClickListener"/>
         <variable
                 name="data"
-                type="com.project.taewon.sneakersootd.db.tables.ImageItem"/>
+                type="com.project.taewon.googlesearch.db.tables.ImageItem"/>
     </data>
 
     <androidx.cardview.widget.CardView
